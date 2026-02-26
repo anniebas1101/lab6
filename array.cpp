@@ -11,6 +11,8 @@ Array::Array(int n, unsigned char value) : size(n) {
     }
     
     data = new unsigned char[n];
+    cout << "выделяем память array" << endl;
+
     for (int i = 0; i < n; i++) {
         data[i] = value;
     }
@@ -24,7 +26,11 @@ Array::Array(const Array& other) : size(other.size) {
 }
 
 Array::~Array() {
-    delete[] data;
+    if (data) {
+        cout << "delete data array" << endl;
+        delete[] data;
+        data = nullptr;
+    }
 }
 
 unsigned char& Array::operator[](int index) {

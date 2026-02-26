@@ -5,7 +5,7 @@ using namespace std;
 class Array {
 protected:
     static const int MAX_SIZE = 100;
-    unsigned char* data;
+    unsigned char* data = nullptr;
     int size;
 
 public:
